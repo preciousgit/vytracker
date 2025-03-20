@@ -174,48 +174,6 @@ export function RegisterForm({
                     />
                   </div>
                   <div className="grid gap-2">
-                    <Label htmlFor="weight">Weight (kg)</Label>
-                    <Input
-                      id="weight"
-                      name="weight"
-                      type="number"
-                      required
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="temperature">Temperature (°C)</Label>
-                    <Input
-                      id="temperature"
-                      name="temperature"
-                      type="number"
-                      required
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="pulseRate">Pulse Rate (bpm)</Label>
-                    <Input
-                      id="pulseRate"
-                      name="pulseRate"
-                      type="number"
-                      required
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="respiratoryRate">
-                      Respiratory Rate (breaths/min)
-                    </Label>
-                    <Input
-                      id="respiratoryRate"
-                      name="respiratoryRate"
-                      type="number"
-                      required
-                      onChange={handleChange}
-                    />
-                  </div>
-                  <div className="grid gap-2">
                     <Label htmlFor="password">Password</Label>
                     <Input
                       id="password"

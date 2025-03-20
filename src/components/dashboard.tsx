@@ -2,43 +2,47 @@
 
 import { AppSidebar } from "./app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
-import { Bell, Search, Settings, UserCircle } from "lucide-react";
+import { Bell, Search, Home, UserCircle } from "lucide-react";
 import { AppointmentCalendar } from "@/components/appointment-calendar";
 import { CalorieChart } from "../components/calorie-chart";
 import { SectionCards } from "../components/section-cards";
+import Image from "next/image";
+import logo from "../../public/Vytrack.png";
 
 export default function Dashboard() {
   return (
     <SidebarProvider>
       {/* Sidebar */}
-      <AppSidebar className="pt-16" />
+      <AppSidebar className="pt-20" />
 
       {/* Dashboard Wrapper with Padding */}
       <SidebarInset className="pt-16">
         {/* Fixed Header */}
-        <header className="fixed top-0 left-0 right-0 z-50 flex h-16 shrink-0 items-center justify-between px-4 bg-white shadow-md">
+        <header className="fixed top-0 left-0 right-0 z-50 flex h-20 shrink-0 items-center justify-between px-4 bg-white shadow-md">
           {/* Left: Notification & Settings Icons */}
+          <Image src={logo} alt="Vy-Tracker Logo" width={120} height={10} className="mb-4" />
           <div className="flex items-center gap-4">
-            <Bell className="size-5 cursor-pointer text-gray-600 hover:text-primary" />
-            <Settings className="size-5 cursor-pointer text-gray-600 hover:text-primary" />
-          </div>
+            <Home className="size-7 cursor-pointer text-gray-600 hover:text-primary" />
+          
 
-          {/* Center: Search Bar */}
-          <div className="relative hidden sm:block">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-48 rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary"
-            />
-            <Search className="absolute right-2 top-1/2 -translate-y-1/2 size-4 text-gray-500" />
+            {/* Center: Search Bar */}
+            <div className="relative hidden sm:block">
+              <input
+                type="text"
+                placeholder="Search..."
+                className="w-120 rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-primary focus:ring-1 focus:ring-primary"
+              />
+              <Search className="absolute right-2 top-1/2 -translate-y-1/2 size-4 text-gray-500" />
+            </div>
           </div>
 
           {/* Right: Greeting & Profile */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
+            <Bell className="size-8 cursor-pointer text-gray-600 hover:text-primary" />
             <span className="hidden text-sm font-medium sm:block">
               Hello, User!
             </span>
-            <UserCircle className="size-7 text-gray-600" />
+            <UserCircle className="size-8 text-gray-600" />
           </div>
         </header>
 

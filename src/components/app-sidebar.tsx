@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { useEffect } from "react";
-import { Star , Command, CreditCard, LifeBuoy, Map, FileText , Send, Hospital , CalendarCheck , Stethoscope } from 'lucide-react';
+import { Star, LogOut, Menu, CreditCard, LifeBuoy, Map, FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavSecondary } from "./nav-secondary";
@@ -42,12 +42,11 @@ const SidebarStyles = () => {
 };
 
 const data = {
-
   navMain: [
     {
       title: "Book Appointment",
       url: "#",
-      icon: CalendarCheck ,
+      icon: CalendarCheck,
     },
     {
       title: "Doctors",
@@ -86,13 +85,13 @@ const data = {
   ],
   projects: [
     { name: "Subscription", url: "#", icon: CreditCard },
-    { name: "Medical Records", url: "#", icon: FileText  },
+    { name: "Medical Records", url: "#", icon: FileText },
     { name: "Travel", url: "#", icon: Map },
   ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, isCollapsed } = useSidebar();
 
   return (
     <>
@@ -108,7 +107,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" onClick={toggleSidebar}>
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Menu className="size-4" />
                 </div>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -120,7 +119,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <NavSecondary items={data.navSecondary} className="mt-auto" />
         </SidebarContent>
         <SidebarFooter>
-          <button>Logout</button>
+          <button className="flex items-center gap-2">
+            <LogOut className="size-4 ml-2" />
+            {!isCollapsed && <span>Logout</span>}
+          </button>
         </SidebarFooter>
       </Sidebar>
     </>

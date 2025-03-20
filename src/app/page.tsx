@@ -4,7 +4,11 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import slide1 from "../../public/slide1.png";
 import slide2 from "../../public/slide2.png";
@@ -27,22 +31,41 @@ export default function Onboarding() {
       {/* Left Section */}
       <div className="w-1/2 flex flex-col justify-center px-14 bg-white-900 text-black relative">
         {/* Logo */}
-        <Image src={logo} alt="Vy-Tracker Logo" width={80} height={10} className="absolute top-1 left-11" />
-        
-        <h1 className="text-4xl font-bold mb-6">Welcome to Vy-Tracker – Your Health Companion!</h1>
+        <Image
+          src={logo}
+          alt="Vy-Tracker Logo"
+          width={80}
+          height={10}
+          className="absolute top-1 left-11"
+        />
+
+        <h1 className="text-4xl font-bold mb-6">
+          Welcome to Vy-Tracker – Your Health Companion!
+        </h1>
         <h2 className="text-2xl font-semibold mb-4">Your Health, Simplified</h2>
         <p className="text-lg mb-6">
-        Ever felt so unwell that you needed a doctor immediately? Ever wondered what your health records 
-        say about you? Worry less—Vy-Tracker is here to assist you with everything health-related.
+          Ever felt so unwell that you needed a doctor immediately? Ever
+          wondered what your health records say about you? Worry less—Vy-Tracker
+          is here to assist you with everything health-related.
         </p>
         <h2 className="text-2xl font-semibold mb-4">Why Choose Vy-Tracker?</h2>
         <ul className="space-y-2">
-          <li className="flex items-center gap-2">✅ Track Your Health Records – Stay on top of your medical history effortlessly.</li>
-          <li className="flex items-center gap-2">✅ Get Professional Assistance – Connect with verified doctors for expert care.</li>
-          <li className="flex items-center gap-2">✅ Seamless Appointment Scheduling – Set up consultations with ease.</li>
-          <li className="flex items-center gap-2">✅ Smart Medication Reminders – Never miss a dose again.</li>
+          <li className="flex items-center gap-2">
+            ✅ Track Your Health Records – Stay on top of your medical history
+            effortlessly.
+          </li>
+          <li className="flex items-center gap-2">
+            ✅ Get Professional Assistance – Connect with verified doctors for
+            expert care.
+          </li>
+          <li className="flex items-center gap-2">
+            ✅ Seamless Appointment Scheduling – Set up consultations with ease.
+          </li>
+          <li className="flex items-center gap-2">
+            ✅ Smart Medication Reminders – Never miss a dose again.
+          </li>
         </ul>
-        
+
         {/* Updated Button with Blue Color */}
         <Button
           className="mt-6 bg-blue-600 hover:bg-blue-700 text-white"
