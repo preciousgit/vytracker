@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { useEffect } from "react";
-import { BookOpen, Bot, Command, Frame, LifeBuoy, Map, PieChart, Send, Settings2, SquareTerminal } from 'lucide-react';
+import { Star , Command, CreditCard, LifeBuoy, Map, FileText , Send, Hospital , CalendarCheck , Stethoscope } from 'lucide-react';
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavSecondary } from "./nav-secondary";
@@ -47,12 +47,12 @@ const data = {
     {
       title: "Book Appointment",
       url: "#",
-      icon: SquareTerminal,
+      icon: CalendarCheck ,
     },
     {
       title: "Doctors",
       url: "#",
-      icon: Bot,
+      icon: Stethoscope,
       items: [
         { title: "Genesis", url: "#" },
         { title: "Explorer", url: "#" },
@@ -62,7 +62,7 @@ const data = {
     {
       title: "Specialties",
       url: "#",
-      icon: BookOpen,
+      icon: Star,
       items: [
         { title: "Introduction", url: "#" },
         { title: "Get Started", url: "#" },
@@ -71,14 +71,12 @@ const data = {
       ],
     },
     {
-      title: "Pharmacies",
+      title: "Healthcare Centers",
       url: "#",
-      icon: Settings2,
+      icon: Hospital,
       items: [
-        { title: "General", url: "#" },
-        { title: "Team", url: "#" },
-        { title: "Billing", url: "#" },
-        { title: "Limits", url: "#" },
+        { title: "Pharmacies", url: "#" },
+        { title: "Hospitals", url: "#" },
       ],
     },
   ],
@@ -87,8 +85,8 @@ const data = {
     { title: "Feedback", url: "#", icon: Send },
   ],
   projects: [
-    { name: "Design Engineering", url: "#", icon: Frame },
-    { name: "Sales & Marketing", url: "#", icon: PieChart },
+    { name: "Subscription", url: "#", icon: CreditCard },
+    { name: "Medical Records", url: "#", icon: FileText  },
     { name: "Travel", url: "#", icon: Map },
   ],
 };
