@@ -57,11 +57,11 @@ const data = {
       title: "Doctors",
       url: "#",
       icon: Stethoscope,
-      items: [
-        { title: "Genesis", url: "#" },
-        { title: "Explorer", url: "#" },
-        { title: "Quantum", url: "#" },
-      ],
+      // items: [
+      //   { title: "Genesis", url: "#" },
+      //   { title: "Explorer", url: "#" },
+      //   { title: "Quantum", url: "#" },
+      // ],
     },
     {
       title: "Specialties",

@@ -6,6 +6,7 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
+import { useEffect } from "react";
 import { AppSidebar } from "./app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { Bell, Search, Home, UserCircle } from "lucide-react";
@@ -17,6 +18,13 @@ import logo from "../../public/Vytrack.png";
 import BookAppointment from "./BookAppointment";
 
 function DashboardContent() {
+  useEffect(() => {
+    // Any code that accesses `document` or other browser-specific APIs should go here
+    if (typeof document !== "undefined") {
+      // Your client-side code here
+    }
+  }, []);
+
   return (
     <div className="flex flex-1 flex-col gap-6 p-6">
       <div className="bg-blue-500 p-6 rounded-lg">
