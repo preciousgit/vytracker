@@ -198,14 +198,14 @@ export function RegisterForm({
                   Register
                 </Button>
                 <p className="text-center mt-4 text-sm">
-                  Already have an account? 
+                  Already have an account?
                   <button
-                      type="button"
-                      className="underline underline-offset-4 text-blue-600"
-                      onClick={() => router.push("/login")}
-                    >
-                      Login
-                  </button> 
+                    type="button"
+                    className="underline underline-offset-4 text-blue-600"
+                    onClick={() => router.push("/login")}
+                  >
+                    Login
+                  </button>
                 </p>
               </form>
             </CardContent>

@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { useEffect } from "react";
-import { Star, LogOut, Menu, CreditCard, LifeBuoy, Map, FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
+import { Star, LayoutDashboard, LogOut, Menu, CreditCard, LifeBuoy, Map, FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavSecondary } from "./nav-secondary";
@@ -44,8 +44,13 @@ const SidebarStyles = () => {
 const data = {
   navMain: [
     {
+      title: "Dashboard",
+      url: "/",
+      icon: LayoutDashboard,
+    },
+    {
       title: "Book Appointment",
-      url: "#",
+      url: "/book-appointment",
       icon: CalendarCheck,
     },
     {
@@ -88,10 +93,13 @@ const data = {
     { name: "Medical Records", url: "#", icon: FileText },
     { name: "Travel", url: "#", icon: Map },
   ],
+  logout: [
+    { title: "Logout", url: "#", icon: LogOut },
+  ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { toggleSidebar, isCollapsed } = useSidebar();
+  const { toggleSidebar } = useSidebar();
 
   return (
     <>
@@ -119,10 +127,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <NavSecondary items={data.navSecondary} className="mt-auto" />
         </SidebarContent>
         <SidebarFooter>
-          <button className="flex items-center gap-2">
-            <LogOut className="size-4 ml-2" />
-            {!isCollapsed && <span>Logout</span>}
-          </button>
+          <NavSecondary items={data.logout} className="-ml-2"/>
         </SidebarFooter>
       </Sidebar>
     </>
