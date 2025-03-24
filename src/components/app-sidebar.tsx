@@ -46,7 +46,7 @@ const data = {
   navMain: [
     {
       title: "Book Appointment",
-      url: "#",
+      url: "/appointment",
       icon: CalendarCheck ,
     },
     {
@@ -75,8 +75,8 @@ const data = {
       url: "#",
       icon: Hospital,
       items: [
-        { title: "Pharmacies", url: "#" },
-        { title: "Hospitals", url: "#" },
+        { title: "Pharmacies", url: "/pharmacy" },
+        { title: "Hospitals", url: "hospital" },
       ],
     },
   ],
@@ -86,7 +86,7 @@ const data = {
   ],
   projects: [
     { name: "Subscription", url: "#", icon: CreditCard },
-    { name: "Medical Records", url: "#", icon: FileText  },
+    { name: "Medical Records", url: "/medical-record", icon: FileText },
     { name: "Travel", url: "#", icon: Map },
   ],
 };
