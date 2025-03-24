@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { useEffect } from "react";
-import { Star, LayoutDashboard, LogOut, Menu, CreditCard, LifeBuoy, Map, FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
+import { Star, LayoutDashboard, LogOut, Menu, CreditCard, LifeBuoy, MessageCircle , FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavSecondary } from "./nav-secondary";
@@ -55,23 +55,34 @@ const data = {
     },
     {
       title: "Doctors",
-      url: "#",
+      url: "/specialists",
       icon: Stethoscope,
-      // items: [
-      //   { title: "Genesis", url: "#" },
-      //   { title: "Explorer", url: "#" },
-      //   { title: "Quantum", url: "#" },
-      // ],
     },
     {
       title: "Specialties",
-      url: "#",
+      url: "",
       icon: Star,
       items: [
-        { title: "Introduction", url: "#" },
-        { title: "Get Started", url: "#" },
-        { title: "Tutorials", url: "#" },
-        { title: "Changelog", url: "#" },
+        { title: "Cardiologist", url: "#" },
+        { title: "Neurologist", url: "#" },
+        { title: "Pediatrician", url: "#" },
+        { title: "Dermatologist", url: "#" },
+        { title: "Orthopedic", url: "#" },
+        { title: "Gynecologist", url: "#" },
+        { title: "Ophthalmologist", url: "#" },
+        { title: "Endocrinologist", url: "#" },
+        { title: "Psychiatrist", url: "#" },
+        { title: "Hematologist", url: "#" },
+        { title: "Rheumatologist", url: "#" },
+        { title: "Allergist", url: "#" },
+        { title: "Nephrologist", url: "#" },
+        { title: "Gastroenterologist", url: "#" },
+        { title: "Pulmonologist", url: "#" },
+        { title: "Oncologist", url: "#" },
+        { title: "Radiologist", url: "#" },
+        { title: "Anesthesiologist", url: "#" },
+        { title: "General Surgeon", url: "#" },
+        { title: "Urologist", url: "#" },
       ],
     },
     {
@@ -91,7 +102,7 @@ const data = {
   projects: [
     { name: "Subscription", url: "#", icon: CreditCard },
     { name: "Medical Records", url: "#", icon: FileText },
-    { name: "Travel", url: "#", icon: Map },
+    { name: "Chat Now", url: "#", icon: MessageCircle  },
   ],
   logout: [
     { title: "Logout", url: "#", icon: LogOut },

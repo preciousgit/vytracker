@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
   Navigate,
+  Link,
 } from "react-router-dom";
 import { AppSidebar } from "./app-sidebar";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -13,6 +14,9 @@ import Image from "next/image";
 import logo from "../../public/Vytrack.png";
 import BookAppointment from "./BookAppointment";
 import { DashboardContent } from "./DashboardContent";
+import SpecialistSection from "./SpecialistSection";
+import Profile from "../app/profile/page";
+
 
 export default function Dashboard() {
   return (
@@ -26,13 +30,13 @@ export default function Dashboard() {
           {/* Fixed Header */}
           <header className="fixed top-0 left-0 right-0 z-50 flex h-20 shrink-0 items-center justify-between px-4 bg-white shadow-md">
             {/* Left: Notification & Settings Icons */}
-            <Image
-              src={logo}
-              alt="Vy-Tracker Logo"
-              width={120}
-              height={10}
-              className="mb-4"
-            />
+              <Image
+                src={logo}
+                alt="Vy-Tracker Logo"
+                width={120}
+                height={10}
+                className="mb-4 -ml-8 cursor-pointer"
+              />
             <div className="flex items-center gap-4">
               <Home className="size-7 cursor-pointer text-gray-600 hover:text-primary" />
 
@@ -53,7 +57,9 @@ export default function Dashboard() {
               <span className="hidden text-sm font-medium sm:block">
                 Hello, User!
               </span>
-              <UserCircle className="size-8 text-gray-600" />
+              <Link to="/profile">
+                <UserCircle className="size-8 text-gray-600 hover:text-primary" />
+              </Link>
             </div>
           </header>
 
@@ -61,6 +67,8 @@ export default function Dashboard() {
           <Routes>
             <Route path="/" element={<DashboardContent />} />
             <Route path="/book-appointment" element={<BookAppointment />} />
+            <Route path="/specialists" element={<SpecialistSection />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="*" element={<Navigate to="/" />} />{" "}
             {/* Redirect to DashboardContent for any unknown routes */}
           </Routes>
