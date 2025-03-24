@@ -118,7 +118,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <Sidebar
         variant="inset"
         collapsible="icon"
-        className="collapsed-scrollbar-hidden"
+        className="collapsed-scrollbar-hidden bg-gray-300 text-white"
         {...props}
       >
         <SidebarHeader>
