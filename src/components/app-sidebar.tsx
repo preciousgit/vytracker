@@ -2,7 +2,7 @@
 
 import type * as React from "react";
 import { useEffect } from "react";
-import { Star , Command, CreditCard, LifeBuoy, Map, FileText , Send, Hospital , CalendarCheck , Stethoscope } from 'lucide-react';
+import { Star, LayoutDashboard, LogOut, Menu, CreditCard, LifeBuoy, Map, FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
 import { NavMain } from "./nav-main";
 import { NavProjects } from "./nav-projects";
 import { NavSecondary } from "./nav-secondary";
@@ -42,22 +42,31 @@ const SidebarStyles = () => {
 };
 
 const data = {
-
   navMain: [
     {
+      title: "Dashboard",
+      url: "/",
+      icon: LayoutDashboard,
+    },
+    {
       title: "Book Appointment",
+<<<<<<< HEAD
       url: "/appointment",
       icon: CalendarCheck ,
+=======
+      url: "/book-appointment",
+      icon: CalendarCheck,
+>>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
     },
     {
       title: "Doctors",
       url: "#",
       icon: Stethoscope,
-      items: [
-        { title: "Genesis", url: "#" },
-        { title: "Explorer", url: "#" },
-        { title: "Quantum", url: "#" },
-      ],
+      // items: [
+      //   { title: "Genesis", url: "#" },
+      //   { title: "Explorer", url: "#" },
+      //   { title: "Quantum", url: "#" },
+      // ],
     },
     {
       title: "Specialties",
@@ -86,8 +95,15 @@ const data = {
   ],
   projects: [
     { name: "Subscription", url: "#", icon: CreditCard },
+<<<<<<< HEAD
     { name: "Medical Records", url: "/medical-record", icon: FileText },
+=======
+    { name: "Medical Records", url: "#", icon: FileText },
+>>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
     { name: "Travel", url: "#", icon: Map },
+  ],
+  logout: [
+    { title: "Logout", url: "#", icon: LogOut },
   ],
 };
 
@@ -108,7 +124,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" onClick={toggleSidebar}>
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Menu className="size-4" />
                 </div>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -120,7 +136,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <NavSecondary items={data.navSecondary} className="mt-auto" />
         </SidebarContent>
         <SidebarFooter>
-          <button>Logout</button>
+          <NavSecondary items={data.logout} className="-ml-2"/>
         </SidebarFooter>
       </Sidebar>
     </>
