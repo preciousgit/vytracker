@@ -348,18 +348,12 @@ export const RegisterForm: FC<React.ComponentPropsWithoutRef<"div">> = ({ classN
                     <Input
                       id="email"
                       type="email"
-<<<<<<< HEAD
                       {...register("email")}
                       aria-invalid={errors.email ? "true" : "false"}
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
                     )}
-=======
-                      required
-                      onChange={handleChange}
-                    />
->>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="password">Password</Label>
@@ -394,11 +388,7 @@ export const RegisterForm: FC<React.ComponentPropsWithoutRef<"div">> = ({ classN
                   {mutation.isPending ? "Registering..." : "Register"}
                 </Button>
                 <p className="text-center mt-4 text-sm">
-<<<<<<< HEAD
                   Already have an account?{" "}
-=======
-                  Already have an account?
->>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
                   <button
                     type="button"
                     className="underline underline-offset-4 text-blue-600"

@@ -45,18 +45,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/dashboard",
       icon: LayoutDashboard,
     },
     {
       title: "Book Appointment",
-<<<<<<< HEAD
       url: "/appointment",
       icon: CalendarCheck ,
-=======
-      url: "/book-appointment",
-      icon: CalendarCheck,
->>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
     },
     {
       title: "Doctors",
@@ -72,12 +67,12 @@ const data = {
       title: "Specialties",
       url: "#",
       icon: Star,
-      items: [
-        { title: "Introduction", url: "#" },
-        { title: "Get Started", url: "#" },
-        { title: "Tutorials", url: "#" },
-        { title: "Changelog", url: "#" },
-      ],
+      // items: [
+      //   { title: "Introduction", url: "#" },
+      //   { title: "Get Started", url: "#" },
+      //   { title: "Tutorials", url: "#" },
+      //   { title: "Changelog", url: "#" },
+      // ],
     },
     {
       title: "Healthcare Centers",
@@ -85,9 +80,16 @@ const data = {
       icon: Hospital,
       items: [
         { title: "Pharmacies", url: "/pharmacy" },
-        { title: "Hospitals", url: "hospital" },
+        { title: "Hospitals", url: "/hospital" },
       ],
     },
+
+    {
+      title: "Chat with AI",
+      url: "/chatsearch",
+      icon: Stethoscope,
+    },
+
   ],
   navSecondary: [
     { title: "Support", url: "#", icon: LifeBuoy },
@@ -95,11 +97,7 @@ const data = {
   ],
   projects: [
     { name: "Subscription", url: "#", icon: CreditCard },
-<<<<<<< HEAD
     { name: "Medical Records", url: "/medical-record", icon: FileText },
-=======
-    { name: "Medical Records", url: "#", icon: FileText },
->>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
     { name: "Travel", url: "#", icon: Map },
   ],
   logout: [

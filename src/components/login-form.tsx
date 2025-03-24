@@ -93,11 +93,7 @@ const LoginForm: React.FC<{ className?: string }> = ({ className }) => {
                   <div className="flex flex-col items-center text-center">
                     <h1 className="text-2xl font-bold">Welcome back</h1>
                     <p className="text-balance text-muted-foreground">
-<<<<<<< HEAD
                       Login to your Vytracker account
-=======
-                      Login to your Vy-tracker account
->>>>>>> 155e23fe1d2cfcae403ef98c2490e4e762c524e9
                     </p>
                   </div>
                   <div className="grid gap-2">
