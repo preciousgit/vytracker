@@ -5,6 +5,7 @@ import type { FC } from "react";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+
 import { 
   Card, 
   CardContent, 
@@ -14,6 +15,7 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input"
 import {
   Select,
   SelectContent,
@@ -226,7 +228,194 @@ const MedicalRecordsPage: FC = () => {
                 </SelectContent>
               </Select>
             </div>
+
+             {/* Age Field */}
+  <div className="grid gap-2">
+    <Label htmlFor="age">Age</Label>
+    <Input
+      id="age"
+      name="age"
+      type="number"
+      value={formData.age}
+      onChange={handleChange}
+      placeholder="Enter patient's age"
+      required
+    />
+  </div>
+
+    {/* Blood Pressure Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="bloodPressure">Blood Pressure</Label>
+      <Input
+        id="bloodPressure"
+        name="bloodPressure"
+        value={formData.bloodPressure}
+        onChange={handleChange}
+        placeholder="Enter Patient's Blood Pressure"
+      />
+    </div>
+
+    {/* Glucose Level Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="glucoseLevel">Glucose Level</Label>
+      <Input
+        id="glucoseLevel"
+        name="glucoseLevel"
+        type="number"
+        value={formData.glucoseLevel}
+        onChange={handleChange}
+        placeholder="Enter Patient's Glucose Level"
+      />
+    </div>
+
+    {/* Heart Rate Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="heartRate">Heart Rate</Label>
+      <Input
+        id="heartRate"
+        name="heartRate"
+        type="number"
+        value={formData.heartRate}
+        onChange={handleChange}
+        placeholder="Enter Patient's Heart Rate"
+      />
+    </div>
+
+    {/* Oxygen Level Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="oxygenLevel">Oxygen Level</Label>
+      <Input
+        id="oxygenLevel"
+        name="oxygenLevel"
+        type="number"
+        value={formData.oxygenLevel}
+        onChange={handleChange}
+        placeholder="Enter Patient's Oxygen Level"
+      />
+    </div>
+
+    {/* Allergies Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="allergies">Allergies</Label>
+      <Input
+        id="allergies"
+        name="allergies"
+        value={formData.allergies}
+        onChange={handleChange}
+        placeholder="Enter Patient's Allergies"
+      />
+    </div>
+
+    {/* Weight Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="weight">Weight</Label>
+      <Input
+        id="weight"
+        name="weight"
+        type="number"
+        value={formData.weight}
+        onChange={handleChange}
+        placeholder="Enter Patient's Weight"
+      />
+    </div>
+
+    {/* Step Count Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="stepCount">Step Count</Label>
+      <Input
+        id="stepCount"
+        name="stepCount"
+        type="number"
+        value={formData.stepCount}
+        onChange={handleChange}
+        placeholder="Enter Patient's Step Count"
+      />
+    </div>
+
+    {/* Sleep Hours Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="sleepHours">Sleep Hours</Label>
+      <Input
+        id="sleepHours"
+        name="sleepHours"
+        type="number"
+        value={formData.sleepHours}
+        onChange={handleChange}
+        placeholder="Enter Patient's Sleep Hours"
+      />
+    </div>
+
+    {/* Next Appointment Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="nextAppointment">Next Appointment</Label>
+      <Input
+        id="nextAppointment"
+        name="nextAppointment"
+        value={formData.nextAppointment}
+        onChange={handleChange}
+        placeholder="Enter Patient's Next Appointment"
+      />
+    </div>
+
+    {/* Health Alert Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="healthAlert">Health Alert</Label>
+      <Input
+        id="healthAlert"
+        name="healthAlert"
+        value={formData.healthAlert}
+        onChange={handleChange}
+        placeholder="Enter Patient's Health Alert"
+      />
+    </div>
+
+    {/* Diagnosis Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="diagnosis">Diagnosis</Label>
+      <Input
+        id="diagnosis"
+        name="diagnosis"
+        value={formData.diagnosis}
+        onChange={handleChange}
+        placeholder="Enter Patient's Diagnosis"
+      />
+    </div>
+
+    {/* Medication Field */}
+    <div className="grid gap-2">
+      <Label htmlFor="medication">Medications</Label>
+      <Input
+        id="medication"
+        name="medication"
+        value={formData.medication}
+        onChange={handleChange}
+        placeholder="Enter Patient's Medication"
+      />
+    </div>
+
             
+            <div className="grid gap-2">
+              <Label htmlFor="bloodGroup">Blood Group</Label>
+              <Select
+                value={formData.bloodGroup}
+                onValueChange={(value) => handleSelectChange("bloodGroup", value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select Blood Group" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="A+">A+</SelectItem>
+                  <SelectItem value="A-">A-</SelectItem>
+                  <SelectItem value="B+">B+</SelectItem>
+                  <SelectItem value="B-">B-</SelectItem>
+                   <SelectItem value="AB+">AB+</SelectItem>
+                  <SelectItem value="AB-">AB-</SelectItem>
+                  <SelectItem value="O+">O+</SelectItem>
+                  <SelectItem value="O-">O-</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             <div className="grid gap-2">
               <Label htmlFor="note">Note</Label>
               <Textarea

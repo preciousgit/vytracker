@@ -28,7 +28,7 @@ const SearchHistoryPage = () => {
     queryKey: ["searchHistory"],
     queryFn: async () => {
       try {
-        const res = await axios.get(`/chat/history/{userId}`);
+        const res = await axios.get("/chat/history/userId");
         return res.data;
       } catch (err) {
         if (err instanceof AxiosError) {

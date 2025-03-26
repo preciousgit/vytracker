@@ -31,7 +31,7 @@ const ChatSearch = () => {
  const { data: searchHistory = [], error, isLoading: isQueryLoading } = useQuery<SearchHistoryEntry[], Error>({
   queryKey: ["searchHistory"],
   queryFn: async () => {
-    const res = await axios.get("/chat/history/{userId}");
+    const res = await axios.get("/chat/history/userId");
     return res.data;
   },
 });

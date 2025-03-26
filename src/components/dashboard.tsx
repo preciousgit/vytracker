@@ -13,6 +13,8 @@ import Image from "next/image";
 import logo from "../../public/Vytrack.png";
 import BookAppointment from "./BookAppointment";
 import { DashboardContent } from "./DashboardContent";
+import Link from "next/link";
+
 
 export default function Dashboard() {
   return (
@@ -34,11 +36,11 @@ export default function Dashboard() {
               className="mb-4"
             />
               {/* Center: Home */}
-            <div className="grid grid-flow-col items-center gap-4">
-              <Home className="size-7 text-gray-600 hover:text-primary" />
-              
-            </div>
-
+              <div className="grid grid-flow-col items-center gap-4">
+            <Link href="/dashboard" passHref>
+              <Home className="size-7 text-gray-600 hover:text-primary cursor-pointer" />
+            </Link>
+          </div>
 
             {/* Right: Greeting & Profile */}
             <div className="flex items-center gap-4">
