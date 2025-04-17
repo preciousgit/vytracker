@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Method</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-white">
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function PaymentMethod() {
+            return (
+                <div className="max-w-md mx-auto bg-white">
+                    {/* Header */}
+                    <div className="bg-indigo-900 text-white p-4 flex items-center">
+                        <i className="fas fa-arrow-left"></i>
+                        <h1 className="text-center flex-grow text-lg font-semibold">Payment Method</h1>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-4">
+                        {/* Credit & Debit Card Section */}
+                        <div className="mb-6">
+                            <h2 className="text-indigo-900 text-lg font-semibold mb-2">Credit & Debit Card</h2>
+                            <div className="flex items-center bg-blue-100 p-3 rounded-lg">
+                                <i className="fas fa-credit-card text-indigo-900 mr-3"></i>
+                                <span className="flex-grow text-black">  Add New Card</span>
+                                <input type="radio" name="payment-method" className="form-radio text-indigo-900" />
+                            </div>
+                        </div>
+
+                        {/* More Payment Option Section */}
+                        <div>
+                            <h2 className="text-indigo-900 text-lg font-semibold mb-2">More Payment Option</h2>
+                            <div className="flex items-center bg-blue-100 p-3 rounded-lg mb-3">
+                                <i className="fab fa-apple text-indigo-900 mr-3"></i>
+                                <span className="flex-grow text-black">Apple Play</span>
+                                <input type="radio" name="payment-method" className="form-radio text-indigo-900" />
+                            </div>
+                            <div className="flex items-center bg-blue-100 p-3 rounded-lg mb-3">
+                                <i className="fab fa-paypal text-indigo-900 mr-3"></i>
+                                <span className="flex-grow text-black">Paypal</span>
+                                <input type="radio" name="payment-method" className="form-radio text-indigo-900" />
+                            </div>
+                            <div className="flex items-center bg-blue-100 p-3 rounded-lg">
+                                <i className="fab fa-google text-indigo-900 mr-3"></i>
+                                <span className="flex-grow text-black">Google Play</span>
+                                <input type="radio" name="payment-method" className="form-radio text-indigo-900" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<PaymentMethod />, document.getElementById('root'));
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</body>
+</html>
