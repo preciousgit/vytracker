@@ -1,21 +1,62 @@
 "use client";
 
 import type * as React from "react";
-import { useEffect } from "react";
-import { Star, LayoutDashboard, LogOut, Menu, CreditCard, LifeBuoy, MessageCircle , FileText, Send, Hospital, CalendarCheck, Stethoscope } from 'lucide-react';
-import { NavMain } from "./nav-main";
-import { NavProjects } from "./nav-projects";
-import { NavSecondary } from "./nav-secondary";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
+import { useState, useEffect } from "react";
+import Link from 'next/link';
+import { LucideIcon, ChevronDown, ChevronRight, Phone } from 'lucide-react';
+import { 
+  Star, 
+  LayoutDashboard, 
+  LogOut, 
+  Menu, 
+  CreditCard,  
+  Map, 
+  FileText, 
+  Send, 
+  Hospital, 
+  CalendarCheck, 
+  Stethoscope, 
+  Computer 
+} from 'lucide-react';
+import { 
+  Sidebar, 
+  SidebarContent, 
+  SidebarFooter, 
+  SidebarHeader, 
+  SidebarMenu, 
+  SidebarMenuButton, 
+  SidebarMenuItem, 
+  useSidebar 
 } from "@/components/ui/sidebar";
+
+// Define interfaces for type safety
+interface NavItem {
+  title: string;
+  url: string;
+  icon: LucideIcon;
+  items?: NavItem[];
+}
+
+interface NavMainProps {
+  items: NavItem[];
+}
+
+interface NavProjectsProps {
+  projects: {
+    name: string;
+    url: string;
+    icon: LucideIcon;
+  }[];
+}
+
+interface NavSecondaryProps {
+  items: {
+    title: string;
+    url: string;
+    icon: LucideIcon;
+  }[];
+  className?: string;
+}
 
 // Sidebar Styles Component
 const SidebarStyles = () => {
@@ -41,72 +82,152 @@ const SidebarStyles = () => {
   return null;
 };
 
+// Updated NavMain component with dropdown functionality
+const NavMain: React.FC<NavMainProps> = ({ items }) => {
+  // State to manage which dropdown is open
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  // Toggle dropdown for a specific item
+  const toggleDropdown = (title: string) => {
+    setOpenDropdown(prev => prev === title ? null : title);
+  };
+
+  return (
+    <nav>
+      {items.map((item, index) => (
+        <div key={index}>
+          {item.items ? (
+            <div>
+              <div 
+                onClick={() => toggleDropdown(item.title)}
+                className="flex items-center justify-between p-2 hover:bg-gray-100 cursor-pointer"
+              >
+                <div className="flex items-center">
+                  <item.icon className="mr-2" />
+                  {item.title}
+                </div>
+                {openDropdown === item.title ? (
+                  <ChevronDown className="w-4 h-4" />
+                ) : (
+                  <ChevronRight className="w-4 h-4" />
+                )}
+              </div>
+              {openDropdown === item.title && (
+                <div className="pl-4">
+                  {item.items.map((subItem, subIndex) => (
+                    <Link 
+                      key={subIndex} 
+                      href={subItem.url} 
+                      className="flex items-center p-2 hover:bg-gray-100"
+                    >
+                      <subItem.icon className="mr-2" />
+                      {subItem.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : (
+            <Link 
+              href={item.url} 
+              className="flex items-center p-2 hover:bg-gray-100"
+            >
+              <item.icon className="mr-2" />
+              {item.title}
+            </Link>
+          )}
+        </div>
+      ))}
+    </nav>
+  );
+};
+
+// New NavProjects component
+const NavProjects: React.FC<NavProjectsProps> = ({ projects }) => {
+  return (
+    <nav className="mt-4">
+      <h3 className="px-2 text-xs text-gray-500">Projects</h3>
+      {projects.map((project, index) => (
+        <Link 
+          key={index} 
+          href={project.url} 
+          className="flex items-center p-2 hover:bg-gray-100"
+        >
+          <project.icon className="mr-2" />
+          {project.name}
+        </Link>
+      ))}
+    </nav>
+  );
+};
+
+// New NavSecondary component
+const NavSecondary: React.FC<NavSecondaryProps> = ({ items, className }) => {
+  return (
+    <nav className={className}>
+      {items.map((item, index) => (
+        <Link 
+          key={index} 
+          href={item.url} 
+          className="flex items-center p-2 hover:bg-gray-100"
+        >
+          <item.icon className="mr-2" />
+          {item.title}
+        </Link>
+      ))}
+    </nav>
+  );
+};
+
 const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "/",
+      url: "/dashboard",
       icon: LayoutDashboard,
     },
     {
       title: "Book Appointment",
-      url: "/book-appointment",
+      url: "/appointment",
       icon: CalendarCheck,
     },
     {
       title: "Doctors",
-      url: "/specialists",
+      url: "/doctors",
       icon: Stethoscope,
     },
     {
       title: "Specialties",
-      url: "",
+      url: "/specialties",
       icon: Star,
-      items: [
-        { title: "Cardiologist", url: "#" },
-        { title: "Neurologist", url: "#" },
-        { title: "Pediatrician", url: "#" },
-        { title: "Dermatologist", url: "#" },
-        { title: "Orthopedic", url: "#" },
-        { title: "Gynecologist", url: "#" },
-        { title: "Ophthalmologist", url: "#" },
-        { title: "Endocrinologist", url: "#" },
-        { title: "Psychiatrist", url: "#" },
-        { title: "Hematologist", url: "#" },
-        { title: "Rheumatologist", url: "#" },
-        { title: "Allergist", url: "#" },
-        { title: "Nephrologist", url: "#" },
-        { title: "Gastroenterologist", url: "#" },
-        { title: "Pulmonologist", url: "#" },
-        { title: "Oncologist", url: "#" },
-        { title: "Radiologist", url: "#" },
-        { title: "Anesthesiologist", url: "#" },
-        { title: "General Surgeon", url: "#" },
-        { title: "Urologist", url: "#" },
-      ],
     },
     {
       title: "Healthcare Centers",
-      url: "#",
+      url: "/healthcare-centers",
       icon: Hospital,
       items: [
-        { title: "Pharmacies", url: "#" },
-        { title: "Hospitals", url: "#" },
+        { title: "Pharmacies", url: "/pharmacy", icon: Hospital },
+        { title: "Hospitals", url: "/hospital", icon: Hospital },
       ],
     },
-  ],
-  navSecondary: [
-    { title: "Support", url: "#", icon: LifeBuoy },
-    { title: "Feedback", url: "#", icon: Send },
+    {
+      title: "Ask AI Question",
+      url: "/chatsearch",
+      icon: Computer,
+    },
   ],
   projects: [
-    { name: "Subscription", url: "#", icon: CreditCard },
-    { name: "Medical Records", url: "#", icon: FileText },
-    { name: "Chat Now", url: "#", icon: MessageCircle  },
+    { name: "Subscription", url: "/project1", icon: CreditCard },
+    { name: "Contact desk", url: "/chatBox", icon: Phone },
+    { name: "Project 3", url: "/project3", icon: Map },
+  ],
+  navSecondary: [
+    { title: "Help", url: "/help", icon: FileText },
+    { title: "Support", url: "/support", icon: Send },
   ],
   logout: [
-    { title: "Logout", url: "#", icon: LogOut },
-  ],
+    { title: "Logout", url: "/login", icon: LogOut },
+  ]
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -114,7 +235,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <>
-      <SidebarStyles /> {/* Inject styles globally */}
+      <SidebarStyles />
       <Sidebar
         variant="inset"
         collapsible="icon"

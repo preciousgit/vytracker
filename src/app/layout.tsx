@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
 
@@ -24,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${geistMono.variable} ${geistSans.variable} antialiased`}
       >
+        <ToastContainer position="top-right" autoClose={3000} />
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>

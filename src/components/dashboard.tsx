@@ -5,7 +5,6 @@ import {
   Route,
   Routes,
   Navigate,
-  Link,
 } from "react-router-dom";
 import { AppSidebar } from "./app-sidebar";
 import { SidebarInset, SidebarProvider } from "../components/ui/sidebar";
@@ -14,9 +13,7 @@ import Image from "next/image";
 import logo from "../../public/Vytrack.png";
 import BookAppointment from "./BookAppointment";
 import { DashboardContent } from "./DashboardContent";
-import ChatSearch from "../components/chatsearch";
-import SpecialistSection from "./SpecialistSection";
-import Profile from "../app/profile/page";
+import Link from "next/link";
 
 
 export default function Dashboard() {
@@ -39,16 +36,11 @@ export default function Dashboard() {
               className="mb-4"
             />
               {/* Center: Home */}
-          
-            <div className="flex items-center gap-4">
-              <Home className="size-7 cursor-pointer text-gray-600 hover:text-primary" />
-
-              {/* Center: Search Bar */}
-              <div className="relative hidden sm:block ">
-                <ChatSearch />
-              </div>
-            </div>
-
+              <div className="grid grid-flow-col items-center gap-4">
+            <Link href="/dashboard" passHref>
+              <Home className="size-7 text-gray-600 hover:text-primary cursor-pointer" />
+            </Link>
+          </div>
 
             {/* Right: Greeting & Profile */}
             <div className="flex items-center gap-4">
