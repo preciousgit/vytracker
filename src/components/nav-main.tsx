@@ -1,6 +1,6 @@
 "use client";
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronRight, type LucideIcon } from "lucide-react";
 
 import {
@@ -18,6 +18,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { useState } from "react";
 
 export function NavMain({
   items,
@@ -33,20 +34,27 @@ export function NavMain({
   }>;
 }>) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [activeItem, setActiveItem] = useState(location.pathname);
+
+  const handleNavigation = (url: string) => {
+    setActiveItem(url); // Update the active state
+    navigate(url); // Navigate to the selected page
+  };
 
   return (
     <SidebarGroup>
       <SidebarMenu>
         {items.map((item) => {
-          const isActive = location.pathname === item.url;
+          const isActive = activeItem === item.url;
 
           return (
             <Collapsible key={item.title} asChild defaultOpen={isActive}>
               <SidebarMenuItem>
                 {/* Sidebar Menu Button */}
                 <SidebarMenuButton asChild tooltip={item.title}>
-                  <Link
-                    to={item.url}
+                  <button
+                    onClick={() => handleNavigation(item.url)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
                       isActive
                         ? "bg-blue-500 text-white pointer-events-none" // Active state (no hover)
@@ -55,7 +63,7 @@ export function NavMain({
                   >
                     <item.icon />
                     <span>{item.title}</span>
-                  </Link>
+                  </button>
                 </SidebarMenuButton>
 
                 {/* Submenu */}
@@ -70,12 +78,12 @@ export function NavMain({
                     <CollapsibleContent>
                       <SidebarMenuSub>
                         {item.items?.map((subItem) => {
-                          const isSubActive = location.pathname === subItem.url;
+                          const isSubActive = activeItem === subItem.url;
                           return (
                             <SidebarMenuSubItem key={subItem.title}>
                               <SidebarMenuSubButton asChild>
-                                <Link
-                                  to={subItem.url}
+                                <button
+                                  onClick={() => handleNavigation(subItem.url)}
                                   className={`block px-4 py-2 rounded-lg transition-colors ${
                                     isSubActive
                                       ? "bg-blue-400 text-white pointer-events-none"
@@ -83,7 +91,7 @@ export function NavMain({
                                   }`}
                                 >
                                   <span>{subItem.title}</span>
-                                </Link>
+                                </button>
                               </SidebarMenuSubButton>
                             </SidebarMenuSubItem>
                           );

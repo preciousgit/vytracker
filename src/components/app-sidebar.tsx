@@ -3,7 +3,6 @@
 import type * as React from "react";
 import { useState, useEffect } from "react";
 import Link from 'next/link';
-import { LucideIcon, ChevronDown, ChevronRight, Phone } from 'lucide-react';
 import { 
   Star, 
   LayoutDashboard, 
@@ -16,7 +15,8 @@ import {
   Hospital, 
   CalendarCheck, 
   Stethoscope, 
-  Computer 
+  Computer,
+  LucideIcon, ChevronDown, ChevronRight, Phone
 } from 'lucide-react';
 import { 
   Sidebar, 
@@ -114,9 +114,9 @@ const NavMain: React.FC<NavMainProps> = ({ items }) => {
               </div>
               {openDropdown === item.title && (
                 <div className="pl-4">
-                  {item.items.map((subItem, subIndex) => (
+                  {item.items.map((subItem) => (
                     <Link 
-                      key={subIndex} 
+                      key={subItem.url} 
                       href={subItem.url} 
                       className="flex items-center p-2 hover:bg-gray-100"
                     >
